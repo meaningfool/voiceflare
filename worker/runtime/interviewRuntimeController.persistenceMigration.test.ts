@@ -1,0 +1,3 @@
+import { registerInterviewRuntimeControllerPersistenceMigrationTests } from "./testing/interviewRuntimeControllerRegressionSuites.ts";
+
+registerInterviewRuntimeControllerPersistenceMigrationTests();

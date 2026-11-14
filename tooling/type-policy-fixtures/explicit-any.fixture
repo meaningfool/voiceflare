@@ -1,0 +1,2 @@
+const value: any = "unchecked";
+void value;

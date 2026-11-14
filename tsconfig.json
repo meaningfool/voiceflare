@@ -1,0 +1,11 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.browser.json" },
+    { "path": "./tsconfig.browser-tests.json" },
+    { "path": "./tsconfig.node.json" },
+    { "path": "./worker/tsconfig.lab.json" },
+    { "path": "./worker/tsconfig.runtime.json" },
+    { "path": "./worker/tsconfig.tests.json" }
+  ]
+}

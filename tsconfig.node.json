@@ -1,0 +1,39 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "types": ["node"]
+  },
+  "include": [
+    "worker/shared/contracts/runtimeDiagnostics.ts",
+    "worker/shared/contracts/conversationSelection.ts",
+    "worker/shared/contracts/resultWarnings.ts",
+    "worker/shared/testing/platformBuild.ts",
+    "worker/runtime/toolCallRecord.ts",
+    "worker/runtime/gateTestOptions.ts",
+    "worker/conversations/registered.ts",
+    "worker/conversations/originalInterview.ts",
+    "worker/conversations/goodbyeInterview.ts",
+    "worker/conversations/questionsInterview.ts",
+    "worker/runtime/diagnosticContracts.ts",
+    "worker/runtime/conversationContracts.ts",
+    "worker/runtime/executionContracts.ts",
+    "worker/runtime/nodeContentContracts.ts",
+    "worker/runtime/admission/private/reporting.ts",
+    "worker/providers/openaiRealtime/diagnostics.ts",
+    "worker/providers/cascade/diagnostics.ts",
+    "src/apps/lab/content/presets.ts",
+    "src/apps/lab/data/conversationPresets.ts",
+    "src/browser/runtimeTerminalResult.ts",
+    "scripts/**/*.ts",
+    "tests/lab-session/**/*.ts",
+    "tests/lab-content/presets.ts",
+    "tests/lab-content/providerKeys.ts",
+    "tests/lab-runtime-session/**/*.ts",
+    "vite.config.ts",
+    "tooling/check-typescript-foundation.ts",
+    "tooling/worker-compatibility-contract.ts",
+    "tooling/typecheck-sentinel.ts",
+    "tooling/typecheck-contracts/node.typecheck.ts"
+  ]
+}

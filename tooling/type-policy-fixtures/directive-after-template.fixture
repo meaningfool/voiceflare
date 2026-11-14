@@ -1,0 +1,8 @@
+const name = "value";
+const nested = `outer ${`inner ${name}`} tail`;
+const label = `label ${name}`;
+// @ts-expect-error the directive after a template literal must still be checked
+const value: string = 1;
+void nested;
+void label;
+void value;

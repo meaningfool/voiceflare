@@ -1,0 +1,37 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "types": ["node", "vitest/globals"]
+  },
+  "include": [
+    "../src/apps/lab/content/presets.ts",
+    "../src/apps/lab/content/promptLibrary.ts",
+    "../src/apps/lab/data/conversationPresets.ts",
+    "../tests/lab-content/presets.ts",
+    "../tests/lab-content/promptLibrary.ts",
+    "../src/apps/lab/data/cascadeProviderOptions.ts",
+    "../src/apps/lab/data/labWorkerClient.ts",
+    "../src/apps/lab/cascadeClient/labCascadeSettings.ts",
+    "conversations/**/*.ts",
+    "implementations/**/*.ts",
+    "providers/**/*.ts",
+    "runtimeHostComposition.ts",
+    "generated/runtime.d.ts",
+    "generated/runtime-env.d.ts",
+    "generated/lab-env.d.ts",
+    "lab.ts",
+    "lab/**/*.ts",
+    "labRealtime.test.ts",
+    "runtimeRealtime.test.ts",
+    "runtime.ts",
+    "runtimeHostController.ts",
+    "runtimeLocalConfiguration.ts",
+    "runtimeLocalInterviewScript.ts",
+    "runtimeLocalInterviewScript.test.ts",
+    "runtimeHostDelivery.ts",
+    "runtime/**/*.ts",
+    "shared/**/*.ts",
+    "../src/browser/runtimeTerminalResult.ts"
+  ]
+}

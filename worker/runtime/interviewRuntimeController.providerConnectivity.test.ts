@@ -1,0 +1,3 @@
+import { registerInterviewRuntimeControllerProviderConnectivityTests } from "./testing/interviewRuntimeControllerRegressionSuites.ts";
+
+registerInterviewRuntimeControllerProviderConnectivityTests();

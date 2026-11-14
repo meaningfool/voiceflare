@@ -1,0 +1,2 @@
+const value = {} as unknown as string;
+value.toUpperCase();

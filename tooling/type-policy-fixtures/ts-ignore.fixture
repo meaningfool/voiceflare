@@ -1,0 +1,3 @@
+// @ts-ignore because the fixture intentionally evades the compiler.
+const value: string = 1;
+void value;

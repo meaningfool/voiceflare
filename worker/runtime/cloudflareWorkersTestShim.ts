@@ -1,0 +1,19 @@
+/** Node/Vitest stand-in for the Worker runtime's built-in `cloudflare:workers` module. */
+export abstract class DurableObject<Env = unknown> {
+  protected readonly ctx: DurableObjectState;
+  protected readonly env: Env;
+
+  constructor(ctx: DurableObjectState, env: Env) {
+    this.ctx = ctx;
+    this.env = env;
+  }
+}
+
+export abstract class WorkerEntrypoint<Env = unknown> {
+  protected readonly ctx: ExecutionContext;
+  protected readonly env: Env;
+  constructor(ctx: ExecutionContext, env: Env) {
+    this.ctx = ctx;
+    this.env = env;
+  }
+}

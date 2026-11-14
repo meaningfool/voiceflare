@@ -1,0 +1,12 @@
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+.git
+node_modules
+.wrangler
+dist
+test-results
+worker/generated
+pnpm-lock.yaml
+tools/boundary-contracts/**

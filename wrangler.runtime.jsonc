@@ -1,0 +1,46 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "eventpulse-runtime",
+  "main": "worker/runtime.ts",
+  "compatibility_date": "2026-06-05",
+  "compatibility_flags": ["nodejs_compat", "enable_request_signal"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "dev": {
+    "port": 8797,
+    "local_protocol": "http",
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "INTERVIEW_RUNTIME_CONTROLLER",
+        "class_name": "RunController",
+      },
+    ],
+  },
+  "migrations": [
+    {
+      "tag": "v1_run_controller",
+      "new_sqlite_classes": ["RunController"],
+    },
+  ],
+  // Runtime delivers to each application bound here as `<APPLICATION>_CALLBACK_WORKER`, on the
+  // entrypoint that implements its callbacks; a Start names the application in lower case. A Start
+  // for an application without a binding is refused.
+  "services": [
+    {
+      "binding": "LAB_CALLBACK_WORKER",
+      "service": "eventpulse-lab",
+      "entrypoint": "LabRuntimeCallbacks",
+    },
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+  },
+  // Wrangler binds only the secrets listed here, from `.dev.vars`: every provider key Runtime
+  // reads, each optional locally. `pnpm dev` asks for them and `pnpm keys` changes them.
+  "secrets": {
+    "required": ["OPENAI_API_KEY", "SONIOX_API_KEY", "GRADIUM_API_KEY", "CEREBRAS_API_KEY"],
+  },
+}

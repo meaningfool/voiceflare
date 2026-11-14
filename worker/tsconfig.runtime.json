@@ -1,0 +1,35 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "moduleSuffixes": [".runtime-project", ""],
+    "types": ["node"]
+  },
+  "include": [
+    "conversations/**/*.ts",
+    "implementations/**/*.ts",
+    "providers/**/*.ts",
+    "runtimeHostComposition.ts",
+    "generated/runtime.d.ts",
+    "generated/runtime-env.d.ts",
+    "*.runtime-project.ts",
+    "runtime.ts",
+    "runtimeHostController.ts",
+    "runtimeLocalConfiguration.ts",
+    "runtimeLocalInterviewScript.ts",
+    "runtimeHostDelivery.ts",
+    "runtime/**/*.ts",
+    "shared/**/*.ts",
+    "../src/browser/runtimeTerminalResult.ts"
+  ],
+  "exclude": [
+    "conversations/**/*.test.ts",
+    "implementations/**/*.test.ts",
+    "providers/**/*.test.ts",
+    "runtime/**/*.test.ts",
+    "runtime/testing/**/*.ts",
+    "runtime/cloudflareWorkersTestShim.ts",
+    "shared/**/*.test.ts",
+    "shared/testing/**/*.ts"
+  ]
+}
