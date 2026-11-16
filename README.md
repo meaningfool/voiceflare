@@ -23,8 +23,8 @@ This is a first version. The engine's core will be replaced in a later version.
 | ------------------ | -------- | ----------------------------------------------------------------------- |
 | `OPENAI_API_KEY`   | OpenAI   | Realtime. Cascade too, when a Run chooses OpenAI as its language model. |
 | `SONIOX_API_KEY`   | Soniox   | Cascade's default speech input and speech output.                       |
-| `CEREBRAS_API_KEY` | Cerebras | Cascade's default language model.                                       |
 | `GRADIUM_API_KEY`  | Gradium  | Cascade, when a Run chooses Gradium for speech input or output.         |
+| `CEREBRAS_API_KEY` | Cerebras | Cascade's default language model.                                       |
 
 A Realtime interview needs `OPENAI_API_KEY`. A Cascade interview always needs `SONIOX_API_KEY` and
 `CEREBRAS_API_KEY`, plus the key of any other provider the Run chooses. Each interview calls the
@@ -42,14 +42,24 @@ pnpm dev
 pnpm says that it ignored the build scripts of esbuild, sharp and workerd. voiceflare runs without
 them, so there is nothing to approve.
 
-`pnpm dev` first asks for each provider key it has not saved yet. Type or paste a key, or press
-Enter to skip it; input is hidden. The keys are saved in `.dev.vars`, which git ignores, and a
-skipped key is not asked for again. Then `pnpm dev` prepares the Lab's local database, builds the
-Lab page and starts Runtime and the Lab together. When it prints `Lab: http://127.0.0.1:8795`, open
-that address. Ctrl-C stops both. `pnpm dev --port <port>` uses another port.
+`pnpm dev` first asks for each provider key it has not saved yet, in the order of the table above.
+Type or paste a key, or press Enter to skip it; input is hidden. The keys are saved in `.dev.vars`,
+which git ignores, and a skipped key is not asked for again. Runtime reads its keys only from
+`.dev.vars`, not from your shell's environment.
+
+Then `pnpm dev` prepares the Lab's local database, builds the Lab page and starts Runtime and the
+Lab together. Along the way, Wrangler answers its own question about applying the migration, names
+the Workers `eventpulse-lab` and `eventpulse-runtime`, and shows their bindings to each other as
+`[not connected]` until both have started. These messages and the warnings around them are
+expected. When `pnpm dev` prints `Lab: http://127.0.0.1:8795`, open that address. Ctrl-C in the
+terminal stops both Workers. `pnpm dev --port <port>` uses another port.
 
 `pnpm keys` changes the saved keys, and `pnpm keys SONIOX_API_KEY` changes only that one. Press
 Enter to keep a key as it is, or type `-` to remove it. Restart `pnpm dev` to use the change.
+
+The Lab's database and Runtime's state live in `.wrangler/`, and the built page in `dist/`; git
+ignores both. To start again with an empty Lab, stop `pnpm dev` and delete `.wrangler/`. The keys
+in `.dev.vars` stay.
 
 ## A first interview
 
